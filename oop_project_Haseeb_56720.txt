@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Carparking {
+    public static void main(String argu[]) {
+        Scanner sc = new Scanner(System.in);
+        Parking pa = new Parking();
+        int choice;
+        while (true) {
+            System.out.println("Press 1 to enter car");
+            System.out.println("Press 2 to enter bike");
+            System.out.println("Press 3 to enter rikshaw");
+            System.out.println("Press 4 to view data");
+            System.out.println("Press 5 to delete data");
+            System.out.println("Press 6 to exit");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    pa.addCar();
+                    break;
+                case 2:
+                    pa.addBike();
+                    break;
+                case 3:
+                    pa.addRikshaw();
+                    break;
+                case 4:
+                    pa.viewData();
+                    break;
+                case 5:
+                    pa.reset();
+                    System.out.println("All records deleted");
+                    break;
+                case 6:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+}
+
+class Parking {
+    private int car = 0, bike = 0, rikshaw = 0;
+
+    public void addCar() {
+        car++;
+        System.out.println("Car added. Total cars: " + car);
+    }
+
+    public void addBike() {
+        bike++;
+        System.out.println("Bike added. Total bikes: " + bike);
+    }
+
+    public void addRikshaw() {
+        rikshaw++;
+        System.out.println("Rikshaw added. Total rikshaws: " + rikshaw);
+    }
+
+    public void viewData() {
+        System.out.println("Cars: " + car);
+        System.out.println("Bikes: " + bike);
+        System.out.println("Rikshaws: " + rikshaw);
+    }
+
+    public void reset() {
+        car = 0;
+        bike = 0;
+        rikshaw = 0;
+    }
+}
